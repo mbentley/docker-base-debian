@@ -1,6 +1,6 @@
 # STAGE 0: use base image from Docker Hub, update repo and upgrade the existing packages
 ARG IMAGE_TAG="${IMAGE_TAG:-jessie}"
-FROM debian:${IMAGE_TAG} AS base
+FROM debian/eol:${IMAGE_TAG} AS base
 
 RUN echo "deb http://archive.debian.org/debian $(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}') main" > /etc/apt/sources.list &&\
   apt-get update &&\
