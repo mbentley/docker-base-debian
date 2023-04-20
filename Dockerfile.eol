@@ -2,7 +2,9 @@
 ARG IMAGE_TAG="${IMAGE_TAG:-jessie}"
 FROM debian/eol:${IMAGE_TAG} AS base
 
-RUN echo "deb http://archive.debian.org/debian $(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}') main" > /etc/apt/sources.list &&\
+RUN RELEASE="$(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}')" &&\
+  echo "deb http://archive.debian.org/debian ${RELEASE} main" > /etc/apt/sources.list &&\
+  echo "deb http://archive.debian.org/debian-security ${RELEASE}/updates main" >> /etc/apt/sources.list &&\
   apt-get update &&\
   DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
   rm -rf /var/lib/apt/lists/*
