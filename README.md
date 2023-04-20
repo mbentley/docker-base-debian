@@ -30,4 +30,3 @@ do
   docker build --pull --build-arg IMAGE_TAG="${VERSION}" -t "mbentley/debian:${VERSION}" -f Dockerfile.debian .
 done
 ```
-
