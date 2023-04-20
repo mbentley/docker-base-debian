@@ -18,7 +18,7 @@ The following is a list of multi-arch (`amd64`, `arm64`, `armv7`) tags for each 
 | Debian | `debian:latest`<br>`debian:bullseye` | `mbentley/debian:latest`<br>`mbentley/debian:bullseye` |
 | Debian | `debian:buster` | `mbentley/debian:buster` |
 | Debian | `debian:stretch` | `mbentley/debian:stretch` |
-| Debian | `debian:jessie` | `mbentley/debian:jessie` |
+| Debian | `debian/eol:jessie` | `mbentley/debian:jessie` |
 
 ## Re-Building the Images
 
