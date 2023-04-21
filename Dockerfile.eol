@@ -4,7 +4,7 @@ FROM debian/eol:${IMAGE_TAG} AS base
 
 RUN RELEASE="$(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}')" &&\
   echo "deb http://archive.debian.org/debian ${RELEASE} main" > /etc/apt/sources.list &&\
-  if [ "$(uname -m)" != "aarch64" ] && [ "${RELEASE}" != "jessie" ]; then echo "deb http://archive.debian.org/debian-security ${RELEASE}/updates main" >> /etc/apt/sources.list; fi &&\
+  echo "deb http://archive.debian.org/debian-security ${RELEASE}/updates main" >> /etc/apt/sources.list &&\
   apt-get update &&\
   DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
   rm -rf /var/lib/apt/lists/*
