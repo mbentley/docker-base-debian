@@ -4,6 +4,7 @@ FROM debian:${IMAGE_TAG} AS base
 
 RUN apt-get update &&\
   DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
+  DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y &&\
   rm -rf /var/lib/apt/lists/*
 
 # STAGE 1: copy contents of the original base image to a new image so we don't have overlapping files in layers

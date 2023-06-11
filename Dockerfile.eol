@@ -7,6 +7,7 @@ RUN RELEASE="$(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}')" &&\
   echo "deb http://archive.debian.org/debian-security ${RELEASE}/updates main" >> /etc/apt/sources.list &&\
   apt-get update &&\
   DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
+  DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y &&\
   rm -rf /var/lib/apt/lists/*
 
 # STAGE 1: copy contents of the original base image to a new image so we don't have overlapping files in layers
