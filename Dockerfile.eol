@@ -2,10 +2,11 @@
 ARG IMAGE_TAG="${IMAGE_TAG:-jessie}"
 FROM debian/eol:${IMAGE_TAG} AS base
 
-RUN RELEASE="$(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}')" &&\
-  echo "deb http://archive.debian.org/debian ${RELEASE} main" > /etc/apt/sources.list &&\
-  echo "deb http://archive.debian.org/debian-security ${RELEASE}/updates main" >> /etc/apt/sources.list &&\
-  apt-get update &&\
+# the EOL images have valid repos so this is no longer needed but keeping just in case
+#RUN RELEASE="$(grep ^VERSION= /etc/os-release | awk -F '[()]' '{print $2}')" &&\
+#  echo "deb http://archive.debian.org/debian ${RELEASE} main" > /etc/apt/sources.list &&\
+#  echo "deb http://archive.debian.org/debian-security ${RELEASE}/updates main" >> /etc/apt/sources.list &&\
+RUN apt-get update &&\
   DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
   DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y &&\
   rm -rf /var/lib/apt/lists/*

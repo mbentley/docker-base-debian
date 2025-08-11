@@ -15,9 +15,10 @@ The following is a list of multi-arch (`amd64`, `arm64`, `armv7`) tags for each 
 | Distro | Base Image | Rebased Image |
 | ------ | ---------- | ------------- |
 | Debian | `debian:sid` | `mbentley/debian:sid` |
-| Debian | `debian:latest`<br>`debian:bookworm` | `mbentley/debian:latest`<br>`mbentley/debian:bookworm` |
+| Debian | `debian:latest`<br>`debian:trixie` | `mbentley/debian:latest`<br>`mbentley/debian:trixie` |
+| Debian | `debian:bookworm` | `mbentley/debian:bookworm` |
 | Debian | `debian:bullseye` | `mbentley/debian:bullseye` |
-| Debian | `debian:buster` | `mbentley/debian:buster` |
+| Debian | `debian/eol:buster` | `mbentley/debian:buster` |
 | Debian | `debian/eol:stretch` | `mbentley/debian:stretch` |
 | Debian | `debian/eol:jessie` | `mbentley/debian:jessie` |
 
@@ -26,14 +27,14 @@ The following is a list of multi-arch (`amd64`, `arm64`, `armv7`) tags for each 
 ### Debian
 
 ``` bash
-for VERSION in sid bookworm bullseye buster
+for VERSION in sid trixie bookworm bullseye buster
 do
   docker build --pull --build-arg IMAGE_TAG="${VERSION}" -t "mbentley/debian:${VERSION}" -f Dockerfile .
 done
 ```
 
 ``` bash
-for VERSION in stretch jessie
+for VERSION in buster stretch jessie
 do
   docker build --pull --build-arg IMAGE_TAG="${VERSION}" -t "mbentley/debian:${VERSION}" -f Dockerfile.eol .
 done
