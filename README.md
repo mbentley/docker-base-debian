@@ -8,7 +8,7 @@ The images on Docker Hub are not always updated as regularly as I would like.  T
 
 ## Tags
 
-The following is a list of multi-arch (`amd64`, `arm64`, `armv7`) tags for each release.
+The following is a list of multi-arch (`amd64` & `arm64`) tags for each release.
 
 * __Hint__: You can also use the same rebased image tag with `-<arch>` appended (e.g. - `mbentley/debian:latest-amd64`)
 
