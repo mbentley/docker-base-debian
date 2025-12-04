@@ -27,7 +27,7 @@ The following is a list of multi-arch (`amd64` & `arm64`) tags for each release.
 ### Debian
 
 ``` bash
-for VERSION in sid trixie bookworm bullseye buster
+for VERSION in sid trixie bookworm bullseye
 do
   docker build --pull --build-arg IMAGE_TAG="${VERSION}" -t "mbentley/debian:${VERSION}" -f Dockerfile .
 done
