@@ -17,7 +17,7 @@ The following is a list of multi-arch (`amd64` & `arm64`) tags for each release.
 | Debian | `debian:sid` | `mbentley/debian:sid` |
 | Debian | `debian:latest`<br>`debian:trixie` | `mbentley/debian:latest`<br>`mbentley/debian:trixie` |
 | Debian | `debian:bookworm` | `mbentley/debian:bookworm` |
-| Debian | `debian:bullseye` | `mbentley/debian:bullseye` |
+| Debian | `debian/eol:bullseye` | `mbentley/debian:bullseye` |
 | Debian | `debian/eol:buster` | `mbentley/debian:buster` |
 | Debian | `debian/eol:stretch` | `mbentley/debian:stretch` |
 | Debian | `debian/eol:jessie` | `mbentley/debian:jessie` |
